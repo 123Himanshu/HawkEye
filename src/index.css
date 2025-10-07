@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cybersecurity Dark Theme - Professional & Clean */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --card-glow: 199 89% 48%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 199 89% 58%;
+
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Severity Colors */
+    --critical: 0 84% 60%;
+    --high: 0 84% 60%;
+    --medium: 38 92% 50%;
+    --low: 142 76% 36%;
+    --info: 199 89% 48%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 20%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 199 89% 48%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 58%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 70%));
+    
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 30px hsla(199, 89%, 48%, 0.15);
+    --shadow-card: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-critical {
+    @apply text-[hsl(var(--critical))];
+  }
+  .text-high {
+    @apply text-[hsl(var(--high))];
+  }
+  .text-medium {
+    @apply text-[hsl(var(--medium))];
+  }
+  .text-low {
+    @apply text-[hsl(var(--low))];
+  }
+  .bg-critical {
+    @apply bg-[hsl(var(--critical))];
+  }
+  .bg-high {
+    @apply bg-[hsl(var(--high))];
+  }
+  .bg-medium {
+    @apply bg-[hsl(var(--medium))];
+  }
+  .bg-low {
+    @apply bg-[hsl(var(--low))];
+  }
+  .card-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
