@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 
 interface ProtectedRouteProps {
@@ -7,6 +8,10 @@ interface ProtectedRouteProps {
 export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { user } = useAuth();
 
-  // Always show content - no real protection
+  // Redirect to auth if user is not logged in
+  if (!user) {
+    return <Navigate to="/auth" replace />;
+  }
+
   return <>{children}</>;
 };

@@ -17,11 +17,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<MockUser | null>({
-    id: '1',
-    email: 'analyst@hawkeye.com',
-    full_name: 'Security Analyst'
-  });
+  const [user, setUser] = useState<MockUser | null>(null);
   const [loading] = useState(false);
   const { toast } = useToast();
 
