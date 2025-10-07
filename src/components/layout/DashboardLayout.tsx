@@ -22,14 +22,15 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   ];
 
   return (
-    <div className="flex min-h-screen w-full bg-background">
-      {/* Sidebar */}
-      <aside className="w-64 border-r border-border bg-card flex flex-col relative">
-        <div className="flex items-center gap-2 p-6 border-b border-border">
+    <div className="flex h-screen w-full bg-background overflow-hidden">
+      {/* Sidebar - Fixed */}
+      <aside className="w-64 border-r border-border bg-card flex flex-col fixed left-0 top-0 bottom-0 z-40">
+        <div className="flex items-center gap-2 p-6 border-b border-border flex-shrink-0">
           <Shield className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold">HawkEye</span>
         </div>
-        <nav className="p-4 space-y-2 flex-1 overflow-y-auto pb-32">
+        
+        <nav className="p-4 space-y-2 flex-1 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
@@ -50,7 +51,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </nav>
 
         {/* User Profile & Logout */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border bg-card">
+        <div className="p-4 border-t border-border bg-card flex-shrink-0">
           <div className="flex items-center gap-3 mb-3 px-2">
             <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
               <User className="h-5 w-5 text-primary" />
@@ -73,8 +74,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </div>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 overflow-auto">
+      {/* Main Content - With left margin to account for fixed sidebar */}
+      <main className="flex-1 ml-64 overflow-y-auto h-screen">
         <div className="p-8">{children}</div>
       </main>
     </div>
